@@ -55,14 +55,50 @@
   .nav li:hover {
     background-color: #777;
   }
+
+  .preInformation{
+    text-align: left;
+  }
+
+  .h1{
+    font-size: 50px;
+    text-align: left;
+    margin-top: 200px;
+  }
+
+  .p {
+    font-size: 25px;
+    text-align: left;
+  }
+
+.green-circle {
+    width: 500px;
+    height: 500px;
+    background-color: green;
+    border-radius: 50%; 
+    margin-left: 700px;
+    margin-top: -350px;
+    display: flex; 
+    justify-content: center;
+    align-items: center; 
+}
+
+.formatPhoto{
+  margin-top: 50px;
+  margin-right: 10px;
   
+}
+
+.opportunies{
+  margin-top: 200px;
+}
   .rectangle1 {
     width: 350px;
     height: 400px;
     background-color: #4cffff;
     border: 1px solid #4cffff;
     position: absolute; 
-    bottom: 200px; 
+    margin-top: 50px; 
     left: 200px; 
     border-radius: 20px;
     font-size: 30px;
@@ -99,7 +135,7 @@
   background-color: #8A4FFF;
   border: 1px solid #8A4FFF;
   position: absolute; 
-  bottom: 200px; 
+  margin-top: 50px; 
   left: 650px; 
   border-radius: 20px;
   font-size: 30px;
@@ -136,7 +172,7 @@
   background-color: #E8D7F1;
   border: 1px solid #E8D7F1;
   position: absolute; 
-  bottom: 200px; 
+  margin-top: 50px; 
   left: 1100px; 
   border-radius: 20px;
   font-size: 30px;
@@ -182,3 +218,183 @@
 .mathicon:hover * {
    fill: #8A4FFF;
 }*/
+
+
+.startButton {
+  align-items: center;
+  background-image: linear-gradient(144deg,#AF40FF, #5B42F3 50%,#00DDEB);
+  border: 0;
+  border-radius: 8px;
+  box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  display: flex;
+  font-family: Phantomsans, sans-serif;
+  font-size: 20px;
+  justify-content: center;
+  line-height: 1em;
+  max-width: 100%;
+  min-width: 140px;
+  padding: 19px 24px;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.startButton:active,
+.startButton:hover {
+  outline: 0;
+}
+
+@media (min-width: 768px) {
+  .startButton {
+    font-size: 24px;
+    min-width: 200px;
+  }
+}
+
+.againButton {
+  align-items: center;
+  background-image: linear-gradient(135deg, #f34079 40%, #fc894d);
+  border: 0;
+  border-radius: 10px;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  font-family: "Codec cold",sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  height: 54px;
+  justify-content: center;
+  letter-spacing: .4px;
+  line-height: 1;
+  max-width: 100%;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 3px;
+  text-decoration: none;
+  text-transform: uppercase;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  margin-left: 490px;
+}
+
+.againButton:active {
+  outline: 0;
+}
+
+.againButton:hover {
+  outline: 0;
+}
+
+.againButton span {
+  transition: all 200ms;
+}
+
+.againButton:hover span {
+  transform: scale(.9);
+  opacity: .75;
+}
+
+@media screen and (max-width: 991px) {
+  .againButton {
+    font-size: 15px;
+    height: 50px;
+  }
+
+  .againButton span {
+    line-height: 50px;
+  }
+}
+
+.options {
+  text-decoration: none;
+  list-style: none;
+  color: black;
+  font-size: 16px;
+  background: #4cffff;
+  border: 1px solid;
+  border-radius: 16px;
+  padding: 11px;
+  margin-top: 15px;
+  cursor: pointer;
+  width: 200px;
+  margin-left: auto; 
+  margin-right: auto; 
+  
+}
+
+.options:active,
+.options:focus {
+  background: #8A4FFF; 
+}
+
+.titleQuestion {
+  color: #f34079;
+}
+
+.nextButton {
+  align-items: center;
+  background-image: linear-gradient(135deg, #f34079 40%, #fc894d);
+  border: 0;
+  border-radius: 10px;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  font-family: "Codec cold", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  height: 54px;
+  justify-content: center;
+  letter-spacing: .4px;
+  line-height: 1;
+  max-width: 100%;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 3px;
+  text-decoration: none;
+  text-transform: uppercase;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  margin-left: auto; 
+  margin-right: auto;
+ 
+}
+
+.nextButton:active {
+  outline: 0;
+}
+
+.nextButton:hover {
+  outline: 0;
+}
+
+.nextButton span {
+  transition: all 200ms;
+}
+
+.nextButton:hover span {
+  transform: scale(.9);
+  opacity: .75;
+}
+
+@media screen and (max-width: 991px) {
+  .nextButton {
+    font-size: 15px;
+    height: 50px;
+  }
+
+  .nextButton span {
+    line-height: 50px;
+  }
+}
+

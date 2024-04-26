@@ -1,3 +1,10 @@
+
 export default function Lectures() {
-    return <h1>Lectures</h1>
+ 
+
+   return (
+        <div>
+          <p>Lectures</p>
+        </div>
+    );
   }

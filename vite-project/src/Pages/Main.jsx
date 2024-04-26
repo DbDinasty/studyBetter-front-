@@ -1,5 +1,6 @@
 import { Routes } from "react-router-dom";
 import Navbar from "../Navbar";
+import photo from './images/Preperation.png';
 //import { ReactComponent as MathIcon } from "./mathicon.svg";
 //import { ReactComponent as DiscreteMathIcon } from "./discretemath.svg";
 //import { ReactComponent as LectureIcon } from "./lectureicon.svg";
@@ -7,12 +8,22 @@ import Navbar from "../Navbar";
 //<DiscreteMathIcon classname = "discretemathicon"/>
 //<LectureIcon classname = "lectureicon"/>
 
+//<img src={MathIcon} alt="PhotoMain"/>
 
 export default function Main() {
     return (
         <div>
+            <div> 
+                <h1 className="h1"> Університетські тести. <br />
+                     Підготовка до іспитів
+                </h1>
+                <p className="p"> Навчайся зручно, складай впевнено </p>
+                <div class="green-circle">
+                   <div><img src={photo} className="formatPhoto"/></div>
+                </div>
+            </div>
             <div>
-                <h1>Можливості для навчання</h1>
+                <h1 className="opportunies">Можливості для навчання</h1>
             </div>
             <div className="rectangle1">
              Вища математика

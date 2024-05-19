@@ -11,6 +11,16 @@ const getQuestions = async () => {
   }
 }
 
+const getAnswers = async () => {
+  try {
+    const response = await axios.get(`${API_URL}/answers?pagination[limit]=61`)
+    console.log('answers RESP: ', response)
+    return response.data.data
+  } catch (error) {
+    console.log('getAnswers error', error)
+  }
+}
+
 const getAnswerByID = async (id) => {
   try {
     const response = await axios.get(`${API_URL}/answers/${id}`)
@@ -20,6 +30,5 @@ const getAnswerByID = async (id) => {
     console.log('getAnswerByID error', error)
   }
 }
-// http://localhost:1337/api/answers/2?fields[0] = question_id
 
-export default { getQuestions, getAnswerByID }
+export default { getQuestions, getAnswerByID, getAnswers }

@@ -1,16 +1,16 @@
 import { useState } from 'react'
 import api from '../api'
-import { StartScreen, ContinueButton, Question, Results, RestartButton } from '../components'
+import { StartScreen, ContinueButton, Question, ResultsMath, RestartButton } from '../components'
 
 export default function Math() {
   const [questions, setQuestions] = useState([])
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0)
   const [selectedAnswerID, setSelectedAnswerID] = useState(null)
-  const [myAnswers, setMyAnswers] = useState([])
+  const [userAnswers, setuserAnswers] = useState([])
   const [isLoading, setIsLoading] = useState(false)
 
   const fetchQuestions = async () => {
-    const data = await api.getQuestions()
+    const data = await api.getQuestionsMath()
     console.log('fetchQuestions data', data)
     setQuestions(data)
   }
@@ -24,21 +24,18 @@ export default function Math() {
     setSelectedAnswerID(id)
   }
 
-  const handleNextQuestion = async () => {
-    const answerData = await api.getAnswerByID(selectedAnswerID)
+  const handleNextQuestion =  () => {
+    if (selectedAnswerID === null) {
+      alert('Please select an answer before continuing.');
+      return;
+    }
 
     const question = questions[currentQuestionIndex]
-
-    const isTrue = Number(question.id) === Number(answerData)
-    const myAnswer = { questionID: question.id, answer: isTrue }
-
-    setMyAnswers((prew) => [...prew, myAnswer])
-
+    const userAnswers = { question_id: question.id, answer_id: selectedAnswerID }
+    
+    setuserAnswers((prew) => [...prew, userAnswers])
     setCurrentQuestionIndex((prevIndex) => prevIndex + 1)
-  }
-
-  if (isLoading) {
-    return <p>Loading...</p>
+    setSelectedAnswerID(null) 
   }
 
   // Needs to rewrite
@@ -50,13 +47,14 @@ export default function Math() {
   const disabled = selectedAnswerID === null
 
   if (currentQuestionIndex === questions.length) {
+    
     return (
       <div>
-        <Results myAnswers={myAnswers} questions={questions} />
+        <ResultsMath userAnswers={userAnswers} questions={questions} />
         <RestartButton
           setCurrentQuestionIndex={setCurrentQuestionIndex}
           setSelectedAnswerID={setSelectedAnswerID}
-          setMyAnswers={setMyAnswers}
+          setuserAnswers={setuserAnswers}
         />
       </div>
     )

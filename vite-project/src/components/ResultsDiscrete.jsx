@@ -3,14 +3,18 @@ import { useState, useEffect } from 'react'
 //import { resultArray } from './result'
 import api from '../api'
 
-const Results = ({ myAnswers = [], questions }) => {
+const Results = ({ userAnswers = [], questions }) => {
   const [answers, setAnswers] = useState([])
 
   useEffect(() => {
     const fetchAnswers = async () => {
       try {
-        const response = await api.getAnswers()
-        const answers = response.map((answer) => answer.attributes.text)
+        const response = await api.getAnswersDiscrete()
+        const answers = response.map((answer) =>({
+          id: answer.id,
+          text: answer.attributes.text,
+          question_id: answer.attributes.question_id,
+        }));
         setAnswers(answers)
       } catch (error) {
         console.log('fetchAnswers error', error)
@@ -20,7 +24,10 @@ const Results = ({ myAnswers = [], questions }) => {
     fetchAnswers()
   }, [])
 
-  const correctAnswers = myAnswers.filter((answer) => answer.answer === true).length
+  const correctAnswers = userAnswers.filter(userAnswer => {
+    const matchingAnswer = answers.find(answer => Number(answer.id) === Number(userAnswer.answer_id))
+    return matchingAnswer && Number(matchingAnswer.question_id) === Number(userAnswer.question_id)
+  }).length
 
   /*
   const fetchAnswers = async () => {
@@ -42,36 +49,30 @@ const Results = ({ myAnswers = [], questions }) => {
         Кількість правильних відповідей: {correctAnswers} / {questions.length}
       </p>
       <div>
-        {questions.map((question, index) => (
-          <div key={index}>
-            <h3>Запитання {index + 1}</h3>
-            <p>{question.question_text}</p>
-            <ul>
-              {question.answer_id.map((answer, ansIndex) => {
-                //const answersArray = question.answer_id
-                /*[1.id, 2.id, 3.id]
+      {questions.map((question, index) => {
+  const correctAnswer = answers.find(answer => Number(answer.question_id) === Number(question.id));
+  const userAnswer = userAnswers.find(userAnswer => Number(userAnswer.question_id) === Number(question.id));
 
-                answers.find((el) => el.id === 1.id) .question.id   === question.id
-
-                const isTrue = !!answers.find((ans) => {
-                 return false
-                })
-                console.log('isTrue', !!isTrue)
-
-                const isTrueStyle = isTrue ? 'options options-true' : 'options'
-               */
-                return (
-                  <li key={ansIndex} className="options">
-                    {answer.text_answer}
-                  </li>
-                )
-              })}
-            </ul>
-            <h3>
-              <p style={{ color: 'green' }}>Правильна відповідь: {answers[index]}</p>
-            </h3>
-          </div>
+  return (
+    <div key={index}>
+      <h3>Запитання {index + 1}</h3>
+      <p>{question.question_text}</p>
+      <ul>
+        {question.answers.map((answer, ansIndex) => (
+           <li key={ansIndex} className="options" style={{ color: userAnswer && Number(userAnswer.answer_id) && Number(userAnswer.answer_id) === Number(answer.id) ? (Number(correctAnswer.id) === Number(answer.id) ? 'green' : 'red') : 'black' }}> 
+            {answer.text_answer}
+          </li>
         ))}
+      </ul>
+      <h3>
+        {correctAnswer && <p style={{ color: 'green' }}>Правильна відповідь: {correctAnswer.text}</p>}
+      </h3>
+    </div>
+  )
+ 
+
+})}  
+
       </div>
     </div>
   )

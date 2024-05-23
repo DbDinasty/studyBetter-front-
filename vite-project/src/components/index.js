@@ -1,7 +1,8 @@
 import Question from './Question'
 import StartScreen from './StartScreen'
 import ContinueButton from './ContinueButton'
-import Results from './Results'
+import ResultsMath from './ResultsMath'
+import ResultsDiscrete from './ResultsDiscrete'
 import RestartButton from './RestartButton'
 
-export { Question, ContinueButton, StartScreen, Results, RestartButton }
+export { Question, ContinueButton, StartScreen, ResultsMath, ResultsDiscrete, RestartButton }

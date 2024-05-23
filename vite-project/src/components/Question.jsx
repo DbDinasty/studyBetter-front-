@@ -1,5 +1,5 @@
 const Question = ({ question, index, handleAnswerSelect }) => {
-  const answers = question.answer_id
+  const answers = question.answers
 
   const handleAnswer = (id) => {
     console.log('Answer ID: ', id)

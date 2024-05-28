@@ -1,6 +1,8 @@
 import { Routes } from 'react-router-dom'
 import Navbar from '../Navbar'
 import photo from './images/Preperation.png'
+import FeedbackForm from '../components/feedback'
+import Footer from '../Footer'
 //import { ReactComponent as MathIcon } from "./mathicon.svg";
 //import { ReactComponent as DiscreteMathIcon } from "./discretemath.svg";
 //import { ReactComponent as LectureIcon } from "./lectureicon.svg";
@@ -38,34 +40,42 @@ export default function Main() {
       <div>
         <h1 className="opportunies">Можливості для навчання</h1>
       </div>
-      <div className="rectangle1">
-        Вища математика
-        <ul style={{ lineHeight: '2.0' }}>
-          <li>Матриці; </li>
-          <li>Аналітична геометрія;</li>
-          <li>Функції;</li>
-        </ul>
-        <a href="http://localhost:5173/math">Докладніше</a>
-      </div>
+      <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+  <div className="rectangle1">
+    Вища математика
+    <ul style={{ lineHeight: '2.0' }}>
+      <li>Матриці; </li>
+      <li>Аналітична геометрія;</li>
+      <li>Функції;</li>
+    </ul>
+    <a href="http://localhost:5173/math">Докладніше</a>
+  </div>
 
-      <div className="rectangle2">
-        Дискретна математика
-        <ul style={{ lineHeight: '2.0' }}>
-          <li>Множини; </li>
-          <li>Дерева;</li>
-          <li>Графи;</li>
-        </ul>
-        <a href="http://localhost:5173/discretemath">Докладніше</a>
-      </div>
+  <div className="rectangle2">
+    Дискретна математика
+    <ul style={{ lineHeight: '2.0' }}>
+      <li>Множини; </li>
+      <li>Дерева;</li>
+      <li>Графи;</li>
+    </ul>
+    <a href="http://localhost:5173/discretemath">Докладніше</a>
+  </div>
 
-      <div className="rectangle3">
-        Лекції
-        <ul style={{ lineHeight: '2.0' }}>
-          <li>Дискретна математика; </li>
-          <li>Архітектура комп'ютерів;</li>
-        </ul>
-        <a href="http://localhost:5173/lectures">Докладніше</a>
-      </div>
+  <div className="rectangle3">
+    Лекції
+    <ul style={{ lineHeight: '2.0' }}>
+      <li>Дискретна математика; </li>
+      <li>Вища математика</li>
+    </ul>
+    <a href="http://localhost:5173/mathlectures">Докладніше</a>
+  </div>
+</div>
+<FeedbackForm/>
+<div>
+<Footer/>
+</div>  
+    
     </div>
-  )
+
+)
 }

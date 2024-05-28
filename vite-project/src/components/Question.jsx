@@ -18,7 +18,7 @@ const Question = ({ question, index, handleAnswerSelect }) => {
     <>
       <h3>Запитання {index + 1}</h3>
       <h3>{question.question_text}</h3>
-      <ul>{answersMap}</ul>
+      <ul style={{listStyle:'none'}}>{answersMap}</ul> {/* Corrected CSS property */}
     </>
   )
 }

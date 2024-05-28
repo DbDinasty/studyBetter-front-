@@ -1,5 +1,6 @@
 * {
   box-sizing: border-box;
+  
 }
 
 body {
@@ -22,11 +23,114 @@ body {
   color: white;
   display: flex;
   justify-content: space-between;
-  align-items: stretch;
-  gap: 2rem;
+  align-items: center;
+  gap: 3rem;
   padding: 0 1rem;
+  border-radius: 10px; /* Add this */
+}
+.footer {
+    width: 100%;
+    position: absolute;
+    margin-top: 80px; 
+    left: 0;
+    right: 0;
+    background-color: #333;
+    padding: 40px;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; /* Додаємо цю властивість */
+    z-index: -1; /* Встановлюємо нижчий z-index */
+  }
+
+.footer p {
+    margin: 0;
+    margin-right: 20px; /* Додаємо цю властивість */
+    font-size: 20px;
+    font-family: Arial, sans-serif;
+    letter-spacing: 0.5px;
+    background: linear-gradient(90deg, #c0c0c0, #f0f0f0, #c0c0c0);
+    background-size: 200% 200%;
+    animation: shimmer 5s ease infinite;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .secondfooter {
+    width: 100%;
+    position: fixed;
+    padding-top: 150px; 
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #333;
+    padding: 40px;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; /* Додаємо цю властивість */
+    z-index: -1; /* Встановлюємо нижчий z-index */
+  }
+
+.secondfooter p {
+    margin: 0;
+    margin-right: 20px; /* Додаємо цю властивість */
+    font-size: 20px;
+    font-family: Arial, sans-serif;
+    letter-spacing: 0.5px;
+    background: linear-gradient(90deg, #c0c0c0, #f0f0f0, #c0c0c0);
+    background-size: 200% 200%;
+    animation: shimmer 5s ease infinite;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  @keyframes shimmer {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+.links-wrapper {
+  margin-right: 6.3rem;
 }
 
+.dropdown {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+.dropdown span {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  margin-left: 5rem;
+  min-width: 160px;
+  z-index: 1;
+  background-color: #333; /* Add this line */
+  text-align: center;
+}
+
+.dropdown-content a {
+  color: white; /* Updated this line */
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  line-height: normal;
+}
+
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
 .site-title {
   font-size: 2rem;
 }
@@ -92,17 +196,24 @@ body {
 .opportunies {
   margin-top: 200px;
 }
-.rectangle1 {
+.rectangle1, .rectangle2, .rectangle3 {
   width: 350px;
   height: 400px;
   background-color: #f0f0f0; /* Soft light gray */
   border: 1px solid #dcdcdc; /* Light gray border */
-  position: absolute;
+  position: relative; /* Змінюємо на relative */
   margin-top: 50px;
-  left: 200px;
   border-radius: 20px;
   font-size: 30px;
   text-align: center;
+  padding: 20px; /* Додаємо padding для відступу від країв */
+}
+
+.rectangle1 a, .rectangle2 a, .rectangle3 a {
+  display: inline-block;
+  color: #333333; /* Dark gray */
+  position: absolute; /* Змінюємо на absolute */
+  bottom: 20px; /* Вирівнюємо по нижньому краю */
 }
 
 .rectangle1 ul {
@@ -116,31 +227,13 @@ body {
   transition: background-color 0.5s ease, color 0.5s ease;
 }
 
-.rectangle1 a {
-  display: inline-block;
-  color: #333333; /* Dark gray */
-  font-size: 30px;
-  text-decoration: none;
-  margin-top: 20px;
-}
+
 
 .rectangle1 a:hover {
   color: #000000; /* Black */
   text-decoration: underline;
 }
 
-.rectangle2 {
-  width: 350px;
-  height: 400px;
-  background-color: #dcdcdc; /* Light gray */
-  border: 1px solid #b3b3b3; /* Medium gray border */
-  position: absolute;
-  margin-top: 50px;
-  left: 650px;
-  border-radius: 20px;
-  font-size: 30px;
-  text-align: center;
-}
 
 .rectangle2 ul {
   text-align: left;
@@ -153,31 +246,12 @@ body {
   transition: background-color 0.5s ease, color 0.5s ease;
 }
 
-.rectangle2 a {
-  display: inline-block;
-  color: #666666; /* Medium gray */
-  font-size: 30px;
-  text-decoration: none;
-  margin-top: 50px;
-}
 
 .rectangle2 a:hover {
   color: #333333; /* Dark gray */
   text-decoration: underline;
 }
 
-.rectangle3 {
-  width: 360px;
-  height: 400px;
-  background-color: #f5f5f5; /* Very light gray */
-  border: 1px solid #e0e0e0; /* Light gray border */
-  position: absolute;
-  margin-top: 50px;
-  left: 1100px;
-  border-radius: 20px;
-  font-size: 30px;
-  text-align: center;
-}
 
 .rectangle3 ul {
   text-align: left;
@@ -188,14 +262,6 @@ body {
   background-color: #cccccc; /* Light gray */
   color: #4d4d4d; /* Dark gray text */
   transition: background-color 0.5s ease, color 0.5s ease;
-}
-
-.rectangle3 a {
-  display: inline-block;
-  color: #4d4d4d; /* Dark gray */
-  font-size: 30px;
-  text-decoration: none;
-  margin-top: 110px;
 }
 
 .rectangle3 a:hover {
@@ -283,6 +349,8 @@ body {
   -webkit-user-select: none;
   touch-action: manipulation;
   margin-left: 380px;
+  transition: transform 0.2s ease-in-out;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .againButton:active {
@@ -291,7 +359,7 @@ body {
 
 .againButton:hover {
   background-image: linear-gradient(144deg, #7939e9, #381f72 50%, #1444ca);
-  
+  transform: scale(1.05);
 }
 
 .againButton span {
@@ -301,6 +369,7 @@ body {
 .againButton:hover span {
   transform: scale(0.9);
   opacity: 0.75;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 @media screen and (max-width: 991px) {
@@ -315,12 +384,12 @@ body {
 }
 
 .options {
-  text-decoration: none;
-  list-style: none;
+  list-style: none; /* Adds the bullet points */
   color: black;
   font-size: 16px;
   background: #e0e0e0; /* Light grey */
-  border: 1px solid #000; /* Black border */
+  border: 1px solid #555; /* Adds a thin dark grey border */
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15); /* Adds a shadow */
   border-radius: 16px;
   padding: 11px;
   margin-top: 15px;
@@ -329,7 +398,6 @@ body {
   margin-left: auto;
   margin-right: auto;
 }
-
 .options:active,
 .options:focus,
 .options:hover {
@@ -372,12 +440,15 @@ body {
   touch-action: manipulation;
   margin-left: auto;
   margin-right: auto;
+  transition: transform 0.2s ease-in-out;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .nextButton:active,
 .nextButton:hover {
   background-image: linear-gradient(144deg, #7939e9, #381f72 50%, #1444ca);
-  
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 .nextButton span {
@@ -398,4 +469,152 @@ body {
   .nextButton span {
     line-height: 50px;
   }
+}
+.lecture-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.lecture-title {
+  text-align: center;
+}
+
+.lecture-list {
+  list-style: none;
+  padding: 0;
+  text-align: left;
+  font-size: 1.5em; /* Increase the font size of the topics */
+}
+.lecture-box {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
+  width: 400px; /* Increase the width */
+  height: 616px; /* Increase the height */
+  overflow: auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin-top: 20px;
+  margin-left: 100px;
+}
+
+.lecture-item {
+  margin-top: 50px;
+  margin-bottom: 25px;
+  cursor: pointer;
+  position: relative;
+  transition: background-color 0.3s ease; /* Only transition the background color */
+  border: 1.5px solid black; /* Make the border thinner */
+  border-radius: 10px; /* Round the corners */
+  padding: 4px; /* Reduce the space between the border and the text */
+  max-width: 250px; /* Reduce the width */
+  margin-right: auto; /* Center the element */
+  background: #e0e0e0;
+  box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.2)
+}
+
+.lecture-item:hover {
+  background: #b3b3b3; /* Change background color to light gray when hovering */
+  box-shadow: 0px 6px 12px 0px rgba(0, 0, 0, 0.2);
+  transform: scale(1.05);
+}
+.content-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.rotating-image {
+  width: 300px; /* adjust as needed */
+  height: 300px; /* adjust as needed */
+  object-fit: cover;
+}
+.feedback-widget {
+  position: fixed;
+  bottom: 120px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  background-color: #5b42f3;
+  border-radius: 50%;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-size: 36px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.feedback-widget:hover {
+  background-color: #7939e9;
+  transform: scale(1.2);
+}
+
+.feedback-form {
+  position: fixed;
+  bottom: 100px;
+  right: 20px;
+  width: 300px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  padding: 20px;
+  display: none;
+}
+
+.feedback-form.open {
+  display: block;
+}
+
+.feedback-form textarea {
+  width: 100%;
+  height: 100px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+
+.feedback-form button {
+  margin-top: 10px;
+  padding: 8px 16px;
+  background-color: #5b42f3;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.feedback-form button:hover {
+  background-color: #7939e9;
+}
+
+
+
+.image-slider {
+  display: flex;
+  width: 400px; 
+  height: 616px;
+  justify-content: center;
+  align-items: center; 
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 10px;
+}
+.slide-image {
+  width: 55%;
+  height: 55%;
+  object-fit: cover;
+}
+.image-container {
+  border-radius: 10px;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(5px);
+  max-width: 550px;
 }

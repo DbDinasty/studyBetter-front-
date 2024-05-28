@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react'
 //import { resultArray } from './result'
 import api from '../api'
+import FeedbackForm from './feedback'
 
 const Results = ({ userAnswers = [], questions }) => {
   const [answers, setAnswers] = useState([])
@@ -51,29 +52,35 @@ const Results = ({ userAnswers = [], questions }) => {
       <div>
       {questions.map((question, index) => {
   const correctAnswer = answers.find(answer => Number(answer.question_id) === Number(question.id));
-  const userAnswer = userAnswers.find(userAnswer => Number(userAnswer.question_id) === Number(question.id));
+
 
   return (
     <div key={index}>
       <h3>Запитання {index + 1}</h3>
       <p>{question.question_text}</p>
       <ul>
-        {question.answers.map((answer, ansIndex) => (
-           <li key={ansIndex} className="options" style={{ color: userAnswer && Number(userAnswer.answer_id) && Number(userAnswer.answer_id) === Number(answer.id) ? (Number(correctAnswer.id) === Number(answer.id) ? 'green' : 'red') : 'black' }}> 
-            {answer.text_answer}
-          </li>
-        ))}
+      {question.answers.map((answer, ansIndex) => {
+      const isUserAnswer = userAnswers.find(userAnswer => 
+        Number(userAnswer.answer_id) === Number(answer.answer_id) && 
+        Number(userAnswer.question_id) === Number(question.id)
+      );
+      const color = isUserAnswer ? 'white' : 'black';
+      return(
+        <li key={ansIndex} className="options" style={{color}}> 
+          {answer.text_answer}
+        </li>
+  );  
+})}
       </ul>
       <h3>
         {correctAnswer && <p style={{ color: 'green' }}>Правильна відповідь: {correctAnswer.text}</p>}
       </h3>
     </div>
   )
- 
-
-})}  
+})}
 
       </div>
+    <FeedbackForm/>
     </div>
   )
 }

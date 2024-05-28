@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import api from '../api'
-import { StartScreen, ContinueButton, Question, ResultsMath, RestartButton } from '../components'
-
+import { StartScreen, ContinueButton, Question, ResultsMath, RestartButton,} from '../components'
+import Footer from '../Footer'
 export default function Math() {
   const [questions, setQuestions] = useState([])
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0)
@@ -64,6 +64,7 @@ export default function Math() {
     <div>
       <Question question={question} index={currentQuestionIndex} handleAnswerSelect={handleAnswerSelect} />
       <ContinueButton onClick={handleNextQuestion} disabled={disabled} />
-    </div>
+    </div> 
+  
   )
 }

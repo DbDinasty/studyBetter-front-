@@ -2,7 +2,8 @@ import { useState } from 'react'
 import api from '../api'
 import { StartScreen, ContinueButton, Question, ResultsDiscrete, RestartButton } from '../components'
 
-export default function Math() {
+
+export default function DiscreteMath() {
   const [questions, setQuestions] = useState([])
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0)
   const [selectedAnswerID, setSelectedAnswerID] = useState(null)
